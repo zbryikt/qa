@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; }
+
+body {
+  margin: 20px; }
+
+.section {
+  margin-bottom: 10px;
+  -ms-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+  display: none; }
+  .section .btn {
+    margin: 10px; }
+  .section.active {
+    display: block; }

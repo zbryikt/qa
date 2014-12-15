@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <title>template</title>
+    <!-- libraries-->
+    <script type="text/javascript" src="assets/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/d3js/3.3.11/d3.v3.min.js"></script>
+    <script type="text/javascript" src="assets/angular/1.2.3/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/3.0.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <!-- custom files-->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>
+    <script type="text/javascript" src="assets/bower/markdown/lib/markdown.js"></script>
+  </head>
+  <body ng-app="main" ng-controller="main">
+    <div ng-repeat="entry in entries" ng-class="{'active':show[$index]==true}" class="section">
+      <h3>{{entry.title}}</h3>
+      <p ng-bind-html="entry.desc"></p>
+      <div ng-repeat="opt in entry.options" ng-click="goto(opt.next)" class="btn btn-primary">{{opt.name}}</div>
+    </div>
+  </body>
+</html>
