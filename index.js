@@ -15,6 +15,18 @@ x$.factory('skolto', function(){
   };
 });
 x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($scope, $http, $sce, skolto){
+  var param, pid;
+  param = window.location.search.replace(/\?/, "").split('&').map(function(it){
+    return it.split('=');
+  });
+  pid = param.filter(function(it){
+    return it[0] === 'id';
+  }).map(function(it){
+    return it[1];
+  });
+  if (!pid || !pid.length) {
+    pid = '10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc';
+  }
   $scope.show = {
     0: true
   };
@@ -29,7 +41,7 @@ x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($sco
     return $scope.done[cur.id] = true;
   };
   return $http({
-    url: 'https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json',
+    url: "https://spreadsheets.google.com/feeds/list/" + pid + "/1/public/values?alt=json",
     method: 'GET'
   }).success(function(d){
     return $scope.entries = d.feed.entry.map(function(it, idx){

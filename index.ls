@@ -6,6 +6,9 @@ angular.module \main, <[]>
     $("html,body").animate({scrollTop: target.offset!top}, 800)
 
   ..controller \main, <[$scope $http $sce skolto]> ++ ($scope, $http, $sce, skolto) ->
+    param = window.location.search.replace /\?/, "" .split \& .map -> it.split \=
+    pid = param.filter(-> it.0 == \id ).map -> it.1
+    if !pid or !pid.length=> pid = \10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc
     $scope.show = {0:true}
     $scope.done = {}
     $scope.goto = (cur, opt) -> 
@@ -18,7 +21,8 @@ angular.module \main, <[]>
 
 
     $http do
-      url: \https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json
+      #url: \https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json
+      url: "https://spreadsheets.google.com/feeds/list/#pid/1/public/values?alt=json"
       #url: \/sample.json
       method: \GET
     .success (d) ->
