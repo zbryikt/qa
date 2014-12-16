@@ -5,17 +5,52 @@ html, body {
   height: 100%; }
 
 body {
-  margin: 20px; }
+  margin: 0;
+  background: #eee; }
+
+#content {
+  padding-top: 40px;
+  width: 100%;
+  min-height: 100%;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  max-width: 1024px;
+  margin: auto; }
 
 .section {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  padding: 20px 20px 40px 20px;
+  border-bottom: 2px solid #eee;
   -ms-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -webkit-transition: all 1s linear;
   -o-transition: all 1s linear;
   transition: all 1s linear;
-  display: none; }
+  display: none;
+  opacity: 0; }
+  .section .title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 900;
+    margin-bottom: 40px; }
+  .section .content {
+    width: 70%;
+    margin: auto;
+    letter-spacing: 0.05em;
+    font-size: 1.5em; }
+  .section .btns {
+    text-align: center;
+    margin: 30px 0; }
   .section .btn {
     margin: 10px; }
   .section.active {
-    display: block; }
+    display: block;
+    opacity: 1; }
+
+.section:first-of-type .title {
+  font-size: 3.5em;
+  margin: 20px 0 30px; }
+
+.foot img {
+  margin: 20px; }

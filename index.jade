@@ -17,7 +17,14 @@ html(lang="en")
     script(src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places")
     script(type="text/javascript",src="assets/bower/markdown/lib/markdown.js")
   body(ng-app="main",ng-controller="main")
-    .section(ng-repeat="entry in entries",ng-class="{'active':show[$index]==true}")
-      h3 {{entry.title}}
-      p(ng-bind-html="entry.desc")
-      .btn.btn-primary(ng-repeat="opt in entry.options",ng-click="goto(opt.next)") {{opt.name}}
+    #content
+      .section(ng-repeat="entry in entries",ng-attr-id="section{{$index}}",ng-class="{'active':show[$index]==true}")
+        .title {{entry.title}}
+        .content(ng-bind-html="entry.desc")
+        .btns
+          .btn.btn-primary.btn-lg(ng-repeat="opt in entry.options",ng-click="goto(entry,opt.next)",ng-class="{'disabled':done[entry.id]}") {{opt.name}}
+      .foot
+        .pull-right
+          | powered by
+          img(src="g0v.gif")
+        .clearfix
