@@ -1,9 +1,9 @@
 angular.module \main, <[]>
-  ..factory \skolto, -> (des, delay=100) ->
+  ..factory \skolto, -> (des, delay=200) ->
     <- setTimeout _, delay
     target = $("##des")
     console.log target
-    $("html,body").animate({scrollTop: target.offset!top}, 500)
+    $("html,body").animate({scrollTop: target.offset!top}, 800)
 
   ..controller \main, <[$scope $http $sce skolto]> ++ ($scope, $http, $sce, skolto) ->
     $scope.show = {0:true}
@@ -18,8 +18,8 @@ angular.module \main, <[]>
 
 
     $http do
-      #url: \https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json
-      url: \/sample.json
+      url: \https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json
+      #url: \/sample.json
       method: \GET
     .success (d) ->
       $scope.entries = d.feed.entry.map (it, idx) -> 

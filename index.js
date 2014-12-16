@@ -3,14 +3,14 @@ var x$;
 x$ = angular.module('main', []);
 x$.factory('skolto', function(){
   return function(des, delay){
-    delay == null && (delay = 100);
+    delay == null && (delay = 200);
     return setTimeout(function(){
       var target;
       target = $("#" + des);
       console.log(target);
       return $("html,body").animate({
         scrollTop: target.offset().top
-      }, 500);
+      }, 800);
     }, delay);
   };
 });
@@ -29,7 +29,7 @@ x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($sco
     return $scope.done[cur.id] = true;
   };
   return $http({
-    url: '/sample.json',
+    url: 'https://spreadsheets.google.com/feeds/list/10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc/1/public/values?alt=json',
     method: 'GET'
   }).success(function(d){
     return $scope.entries = d.feed.entry.map(function(it, idx){
