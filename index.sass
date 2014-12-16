@@ -34,11 +34,31 @@ body
     margin: auto
     letter-spacing: 0.05em
     font-size: 1.5em
+    img
+      width: 100%
   .btns
     text-align: center
     margin: 30px 0
   .btn
     margin: 10px
+    padding: 15px 30px
+    position: relative
+    border-radius: 0
+  .btn.active:after
+    content: " "
+    display: block
+    background: #fff
+    width: 20px
+    height: 20px
+    position: absolute
+    bottom: 0
+    left: 50%
+    margin-left: -14px
+    margin-bottom: -91px
+    border-left: 2px solid #ddd
+    border-top: 2px solid #ddd
+    @include transform(rotate(45deg))
+
   @include transition(all 1s linear)
   display: none
   opacity: 0

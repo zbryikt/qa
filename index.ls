@@ -8,10 +8,11 @@ angular.module \main, <[]>
   ..controller \main, <[$scope $http $sce skolto]> ++ ($scope, $http, $sce, skolto) ->
     $scope.show = {0:true}
     $scope.done = {}
-    $scope.goto = (cur, next) -> 
+    $scope.goto = (cur, opt) -> 
       if $scope.done[cur.id] => return
-      $scope.show[next] = true
-      skolto "section#next"
+      $scope.show[opt.next] = true
+      skolto "section#{opt.next}"
+      opt.chosen = true
       $scope.done[cur.id] = true
 
 

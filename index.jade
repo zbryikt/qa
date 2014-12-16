@@ -22,7 +22,7 @@ html(lang="en")
         .title {{entry.title}}
         .content(ng-bind-html="entry.desc")
         .btns
-          .btn.btn-primary.btn-lg(ng-repeat="opt in entry.options",ng-click="goto(entry,opt.next)",ng-class="{'disabled':done[entry.id]}") {{opt.name}}
+          .btn.btn-success.btn-lg(ng-repeat="opt in entry.options",ng-click="goto(entry,opt)",ng-class="{'disabled':done[entry.id] && !opt.chosen,'active':opt.chosen}") {{opt.name}}
       .foot
         .pull-right
           | powered by

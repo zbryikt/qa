@@ -21,7 +21,7 @@
         <div class="title">{{entry.title}}</div>
         <div ng-bind-html="entry.desc" class="content"></div>
         <div class="btns">
-          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt.next)" ng-class="{'disabled':done[entry.id]}" class="btn btn-primary btn-lg">{{opt.name}}</div>
+          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt)" ng-class="{'disabled':done[entry.id] &amp;&amp; !opt.chosen,'active':opt.chosen}" class="btn btn-success btn-lg">{{opt.name}}</div>
         </div>
       </div>
       <div class="foot">

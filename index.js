@@ -19,12 +19,13 @@ x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($sco
     0: true
   };
   $scope.done = {};
-  $scope.goto = function(cur, next){
+  $scope.goto = function(cur, opt){
     if ($scope.done[cur.id]) {
       return;
     }
-    $scope.show[next] = true;
-    skolto("section" + next);
+    $scope.show[opt.next] = true;
+    skolto("section" + opt.next);
+    opt.chosen = true;
     return $scope.done[cur.id] = true;
   };
   return $http({

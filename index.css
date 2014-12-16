@@ -39,11 +39,34 @@ body {
     margin: auto;
     letter-spacing: 0.05em;
     font-size: 1.5em; }
+    .section .content img {
+      width: 100%; }
   .section .btns {
     text-align: center;
     margin: 30px 0; }
   .section .btn {
-    margin: 10px; }
+    margin: 10px;
+    padding: 15px 30px;
+    position: relative;
+    border-radius: 0; }
+  .section .btn.active:after {
+    content: " ";
+    display: block;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -14px;
+    margin-bottom: -91px;
+    border-left: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
   .section.active {
     display: block;
     opacity: 1; }
