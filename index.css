@@ -7,6 +7,9 @@ html, body {
 body {
   margin: 0;
   background: #eee; }
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px; } }
 
 #content {
   padding-top: 40px;
@@ -45,12 +48,13 @@ body {
   .section .btns {
     text-align: center;
     margin: 30px 0; }
-  .section .btn {
+  .section .btns > .btn {
     margin: 10px;
     padding: 15px 30px;
     position: relative;
-    border-radius: 0; }
-    .section .btn i.glyphicon {
+    border-radius: 0;
+    font-size: 1.3em; }
+    .section .btns > .btn i.glyphicon {
       vertical-align: text-top;
       opacity: 0;
       display: none;
@@ -62,6 +66,10 @@ body {
       position: absolute;
       top: 5px;
       right: 5px; }
+  @media (max-width: 768px) {
+    .section .btns > .btn {
+      display: block;
+      font-size: 1.1em; } }
   .section .btn.active i.glyphicon {
     opacity: 1;
     display: inline-block; }
@@ -83,6 +91,9 @@ body {
     -webkit-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg); }
+    @media (max-width: 768px) {
+      .section .btn.active:after {
+        display: none; } }
   .section.active {
     display: block;
     opacity: 1; }

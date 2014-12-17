@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>template</title>
     <!-- libraries-->
+    <link rel="icon" type="image/x-icon" href="thumbnail.png">
     <script type="text/javascript" src="assets/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/d3js/3.3.11/d3.v3.min.js"></script>
     <script type="text/javascript" src="assets/angular/1.2.3/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/3.0.2/css/bootstrap.min.css">
     <script type="text/javascript" src="assets/bootstrap/3.0.2/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
         <div class="title">{{entry.title}}</div>
         <div ng-bind-html="entry.desc" class="content"></div>
         <div class="btns">
-          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt)" ng-class="{'disabled':done[entry.id] &amp;&amp; !opt.chosen,'active':opt.chosen}" class="btn btn-success btn-lg">
+          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt)" ng-class="{'disabled':done[entry.id] &amp;&amp; !opt.chosen,'active':opt.chosen}" class="btn btn-success">
             {{opt.name}}
               <i class="glyphicon glyphicon-ok"></i>
           </div>

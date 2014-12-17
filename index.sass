@@ -1,5 +1,8 @@
 @import basic
 
+$m-width-mb: "max-width: 480px"
+$m-width-xs: "max-width: 768px"
+
 html,body
   margin: 0
   padding: 0
@@ -9,6 +12,8 @@ html,body
 body
   margin: 0
   background: #eee
+  @media ($m-width-mb)
+    font-size: 12px
 
 #content
   padding-top: 40px
@@ -40,11 +45,12 @@ body
   .btns
     text-align: center
     margin: 30px 0
-  .btn
+  .btns > .btn
     margin: 10px
     padding: 15px 30px
     position: relative
     border-radius: 0
+    font-size: 1.3em
     i.glyphicon
       vertical-align: text-top
       opacity: 0
@@ -53,6 +59,10 @@ body
       position: absolute
       top: 5px
       right: 5px
+  @media ($m-width-xs)
+    .btns > .btn
+      display: block
+      font-size: 1.1em
   .btn.active i.glyphicon
     opacity: 1
     display: inline-block
@@ -70,6 +80,8 @@ body
     border-left: 5px solid #eee
     border-top: 5px solid #eee
     @include transform(rotate(45deg))
+    @media ($m-width-xs)
+      display: none
 
   @include transition(all 1s linear)
   display: none
