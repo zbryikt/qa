@@ -43,8 +43,7 @@ body {
     letter-spacing: 0.05em;
     font-size: 1.5em; }
     .section .content img {
-      width: 148.8%;
-      margin-left: -24.4%; }
+      width: 100%; }
   .section .btns {
     text-align: center;
     margin: 30px 0; }
