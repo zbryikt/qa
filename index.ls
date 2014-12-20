@@ -11,8 +11,20 @@ angular.module \main, <[]>
     if !pid or !pid.length=> pid = \10i17hvwS2YX5xMnn1nubEriVBYvB370ftdpmO2mjvOc
     $scope.show = {0:true}
     $scope.done = {}
+    $scope.order = []
     $scope.goto = (cur, opt) -> 
-      if $scope.done[cur.id] => return
+      # use this if no going back
+      #if $scope.done[cur.id] => return
+      if cur.id in $scope.order => 
+        idx = $scope.order.indexOf(cur.id)
+        removed = $scope.order.splice idx, $scope.order.length - idx
+        for item in removed =>
+          $scope.show[$scope.entries[item].next] = false
+          $scope.done[item] = false
+          for o in $scope.entries[item].options => o.chosen = false
+
+      cur.next = opt.next
+      $scope.order.push cur.id
       $scope.show[opt.next] = true
       skolto "section#{opt.next}"
       opt.chosen = true

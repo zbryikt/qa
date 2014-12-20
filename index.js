@@ -31,10 +31,24 @@ x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($sco
     0: true
   };
   $scope.done = {};
+  $scope.order = [];
   $scope.goto = function(cur, opt){
-    if ($scope.done[cur.id]) {
-      return;
+    var idx, removed, i$, len$, item, j$, ref$, len1$, o;
+    if (in$(cur.id, $scope.order)) {
+      idx = $scope.order.indexOf(cur.id);
+      removed = $scope.order.splice(idx, $scope.order.length - idx);
+      for (i$ = 0, len$ = removed.length; i$ < len$; ++i$) {
+        item = removed[i$];
+        $scope.show[$scope.entries[item].next] = false;
+        $scope.done[item] = false;
+        for (j$ = 0, len1$ = (ref$ = $scope.entries[item].options).length; j$ < len1$; ++j$) {
+          o = ref$[j$];
+          o.chosen = false;
+        }
+      }
     }
+    cur.next = opt.next;
+    $scope.order.push(cur.id);
     $scope.show[opt.next] = true;
     skolto("section" + opt.next);
     opt.chosen = true;
@@ -68,6 +82,11 @@ x$.controller('main', ['$scope', '$http', '$sce', 'skolto'].concat(function($sco
     });
   });
 }));
+function in$(x, xs){
+  var i = -1, l = xs.length >>> 0;
+  while (++i < l) if (x === xs[i]) return true;
+  return false;
+}
 function import$(obj, src){
   var own = {}.hasOwnProperty;
   for (var key in src) if (own.call(src, key)) obj[key] = src[key];

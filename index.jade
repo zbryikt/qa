@@ -22,7 +22,9 @@ html(lang="en")
         .title {{entry.title}}
         .content(ng-bind-html="entry.desc")
         .btns
-          .btn.btn-success(ng-repeat="opt in entry.options",ng-click="goto(entry,opt)",ng-class="{'disabled':done[entry.id] && !opt.chosen,'active':opt.chosen}")
+          //- use this if no going back
+          //-.btn.btn-success(ng-repeat="opt in entry.options",ng-click="goto(entry,opt)",ng-class="{'disabled':done[entry.id] && !opt.chosen,'active':opt.chosen}")
+          .btn.btn-success(ng-repeat="opt in entry.options",ng-click="goto(entry,opt)",ng-class="{'active':opt.chosen}")
             | {{opt.name}}
             |   
             i.glyphicon.glyphicon-ok

@@ -21,7 +21,7 @@
         <div class="title">{{entry.title}}</div>
         <div ng-bind-html="entry.desc" class="content"></div>
         <div class="btns">
-          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt)" ng-class="{'disabled':done[entry.id] &amp;&amp; !opt.chosen,'active':opt.chosen}" class="btn btn-success">
+          <div ng-repeat="opt in entry.options" ng-click="goto(entry,opt)" ng-class="{'active':opt.chosen}" class="btn btn-success">
             {{opt.name}}
               <i class="glyphicon glyphicon-ok"></i>
           </div>
