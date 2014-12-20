@@ -15,7 +15,7 @@ html(lang="en")
     link(rel="stylesheet",type="text/css",href="index.css")
     script(type="text/javascript",src="index.js")
     script(src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places")
-    script(type="text/javascript",src="assets/bower/markdown/lib/markdown.js")
+    script(type="text/javascript",src="bower_components/markdown/lib/markdown.js")
   body(ng-app="main",ng-controller="main")
     #content
       .section(ng-repeat="entry in entries",ng-attr-id="section{{$index}}",ng-class="{'active':show[$index]==true}")
